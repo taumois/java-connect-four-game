@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=GameGrid
+comment0.text=\r\n\ GameGrid,\ a\ class\ to\ hold\ the\ state\ of\ the\ game,\ including\ every\ cell\r\n\r\n\ @author\ Isaiah\ Taumoepeau\r\n
+comment1.params=width\ height
+comment1.target=GameGrid(int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameGrid\r\n
+comment2.params=x\ y
+comment2.target=boolean\ cell(int,\ int)
+comment3.params=x\ y
+comment3.target=int\ cellIndexFromCoordinate(int,\ int)
+numComments=4

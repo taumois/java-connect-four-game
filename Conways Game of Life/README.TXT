@@ -1,3 +1,4 @@
+
 PROJECT TITLE: Conways Game of Life
 AUTHORS: Isaiah Taumoepeau
 HOW TO START THIS PROJECT: n/a

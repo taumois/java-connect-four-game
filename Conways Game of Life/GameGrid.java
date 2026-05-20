@@ -27,68 +27,42 @@ class GameGrid
     }
     
     /**
-     * Returns the cell at the specified coordinate
+     * Returns the state of a cell
      *
-     * @param  x x-coordinate
-     * @param  y y-coordinate
-     * @return    the cell
+     * @param  cellX x-coordinate of the cell to return
+     * @param  cellY y-coordinate of the cell to return
+     * @return   the cell
      */
-    boolean cell(int x, int y) {
-        boolean cell = cells[y][x];
+    boolean cell(int cellX, int cellY) {
+        boolean cell = cells[cellY][cellX];
         return cell;
     }
     
-    // /**
-     // * Changes the value of the cell at the specified coordinate
-     // *
-     // * @param  value  to set the cell to
-     // * @return    the cell
-     // */
-    // void setCell(int x, int y, boolean value) {
-        // cells[y][x] = value;
-    // }
-    
-    // /**
-     // * Returns the neighbor cells of the cell at the specified index
-     // *
-     // * @param  index  self explanatory
-     // * @return    the neighbors
-     // */
-    // boolean[] cellNeighbors(int x, int y) {
-        // boolean[] neighbors = new boolean[NEIGHBORS_PER_CELL];
-        // int i = 0;
-        // for(int j=-1;j<=1;j++) {
-            // for(int k=-1;k<=1;k++) {
-                // if(j !=0 && k != 0) {
-                    // neighbors[i] = cell(x+j, y+k);
-                    // ++i;
-                // }
-            // }
-        // }
-        // // neighbors[0] = cell(x-1, y-1);
-        // // neighbors[1] = cell(x, y-1);
-        // // neighbors[2] = cell(x+1, y-1);
-        // // neighbors[3] = cell(x-1, y);
-        // // neighbors[4] = cell(x+1, y);
-        // // neighbors[5] = cell(x-1, y+1);
-        // // neighbors[6] = cell(x, y+1);
-        // // neighbors[7] = cell(x+1, y+1);
-        // return neighbors;
-    // }
+    /**
+     * Sets the state of a cell
+     *
+     * @param  cellX     x-coordinate of the cell to affect
+     * @param  cellY     y-coordinate of the cell to affect
+     * @param  state state to change the cell to
+     */
+    void setCellsState(int cellX, int cellY, boolean state) {
+        cells[cellX][cellY] = state;
+    }
     
     /**
      * Returns the neighbor cells of the cell at the specified index
      *
-     * @param  index  self explanatory
-     * @return    the neighbors
+     * @param  index self explanatory
+     * @return       the neighbors
      */
-    boolean[] numberOfCellsLivingNeighbors(int x, int y) {
-        int neighbors;
+    int cellsNumberOfLivingNeighbors(int cellX, int cellY) {
+        int neighbors = 0;
         
-        for(int xOffset=-1;xOffset<=1;j++) {
-            for(int k=-1;k<=1;k++) {
-                if(j !=0 && k != 0) {
-                    neighbors += i -> cell(x+j, y+k);
+        for(int xOffset=-1;xOffset<=1;xOffset++) {
+            for(int yOffset=-1;yOffset<=1;yOffset++) {
+                if(xOffset != 0 && yOffset != 0) {
+                    boolean targetNeighborAlive = cell(cellX+xOffset, cellY+yOffset);
+                    neighbors += targetNeighborAlive ? 1 : 0;
                 }
             }
         }

@@ -27,12 +27,18 @@ Constructing Javadoc information...
 Standard Doclet version 17.0.4.1+1
 Building tree for all the packages and classes...
 Generating H:\Documents\GitHub\AS91896-Project\Conways Game of Life\doc\GameGrid.html...
-H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:47: warning: @return tag cannot be used in method with void return type.
-    void setCell(int x, int y, boolean value) {
+H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:32: warning: @param argument "x" is not a parameter name.
+     * @param  x x-coordinate
+       ^
+H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:33: warning: @param argument "y" is not a parameter name.
+     * @param  y y-coordinate
+       ^
+H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:48: warning: @return tag cannot be used in method with void return type.
+    void setCellsState(int x, int y, boolean state) {
          ^
-H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:54: warning: @param argument "index" is not a parameter name.
-     * @param  index  self explanatory
+H:\Documents\GitHub\AS91896-Project\Conways Game of Life\GameGrid.java:55: warning: @param argument "index" is not a parameter name.
+     * @param  index self explanatory
        ^
 Generating H:\Documents\GitHub\AS91896-Project\Conways Game of Life\doc\package-summary.html...
 Generating H:\Documents\GitHub\AS91896-Project\Conways Game of Life\doc\index.html...
-2 warnings
+4 warnings

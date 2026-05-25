@@ -1,6 +1,6 @@
 
 /**
- * Objects of GameGrid holds the state of every cell for a game of Conway's Game of Life. Cells are booleans, where true = alive/false = dead
+ * Objects of GameGrid holds the state of every cell for a game of Conway's Game of Life.
  *
  * @author Isaiah Taumoepeau
  */
@@ -9,8 +9,7 @@ class GameGrid {
     
     private final int WIDTH;
     private final int HEIGHT;
-    
-    private final boolean[][] CELLS;
+    private final Cell[][] CELLS;
 
     /**
      * Constructor for objects of class GameGrid
@@ -21,7 +20,10 @@ class GameGrid {
     GameGrid(int width, int height) {
         this.WIDTH = width;
         this.HEIGHT = height;
-        CELLS = new boolean[HEIGHT][WIDTH];
+        CELLS = new Cell[HEIGHT][WIDTH];
+        for(int i=0;i<CELLS.length;i++) {
+            CELLS[i][i] = Cell.DEAD;
+        }
     }
     
     /**
@@ -29,7 +31,7 @@ class GameGrid {
      *
      * @return all the cells
      */
-    boolean[][] cells() {
+    Cell[][] cells() {
         return CELLS;
     }
     
@@ -40,8 +42,8 @@ class GameGrid {
      * @param cellY y-coordinate of the target cell
      * @return      the cell
      */
-    boolean cell(int cellX, int cellY) {
-        boolean cell = CELLS[cellY][cellX];
+    Cell cell(int cellX, int cellY) {
+        Cell cell = CELLS[cellY][cellX];
         return cell;
     }
     
@@ -52,7 +54,7 @@ class GameGrid {
      * @param cellY y-coordinate of the target cell
      * @param state state to change the cell to
      */
-    void setCellsState(int cellX, int cellY, boolean state) {
+    void setCellsState(int cellX, int cellY, Cell state) {
         CELLS[cellX][cellY] = state;
     }
     
@@ -69,7 +71,7 @@ class GameGrid {
         for(int xOffset=-1;xOffset<=1;xOffset++) {
             for(int yOffset=-1;yOffset<=1;yOffset++) {
                 boolean cellIsNeighbor = (xOffset != 0 || yOffset != 0);
-                boolean cellIsAlive = cell(cellX+xOffset, cellY+yOffset);
+                boolean cellIsAlive = cell(cellX+xOffset, cellY+yOffset) == Cell.ALIVE;
                 
                 neighbors += (!cellIsNeighbor && cellIsAlive) ? 1 : 0;
             }

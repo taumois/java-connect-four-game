@@ -5,8 +5,8 @@
  * @author Isaiah Taumoepea
  */
 class TextUserDisplay implements UserDisplay {
-    private static final char ALIVE_CELL = 'W';
-    private static final char DEAD_CELL = ' ';
+    private static final char ALIVE_CELL_SYMBOL = 'W';
+    private static final char DEAD_CELL_SYMBOL = ' ';
     
     /**
      * Constructor for objects of class TextUserDisplay
@@ -16,18 +16,35 @@ class TextUserDisplay implements UserDisplay {
     }
     
     /**
-     * Displays a grid using text
+     * Displays a grid of cells using text
      *
      * @param grid the grid to display
      */
-    public void display(boolean[][] grid) {
+    public void display(Cell[][] grid) {
         for(int column=0;column<grid.length;column++) {
             for(int row=0;row<grid[column].length;row++) {
-                char cellRepresentation;
+                char cellSymbol;
+                Cell cell = grid[column][row];
                 
-                System.out.print(grid[column][row]);
+                cellSymbol = symbolFromCell(cell);
+                
+                System.out.print(cellSymbol);
             }
-            System.out.print("\n");
+            System.out.println();
+        }
+    }
+    
+    /**
+     * Returns the corrosponding symbol of a cell, which depends on if it's alive
+     *
+     * @param  the cell
+     * @return the symbol
+     */
+    private char symbolFromCell(Cell cell) {
+        if(cell == Cell.ALIVE) {
+            return ALIVE_CELL_SYMBOL;
+        } else {
+            return DEAD_CELL_SYMBOL;
         }
     }
 }

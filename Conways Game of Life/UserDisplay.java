@@ -6,9 +6,9 @@
  */
 interface UserDisplay {
     /**
-     * Displays a grid
+     * Displays a grid of cells
      *
      * @param grid the grid to display
      */
-    void display(boolean[][] grid);
+    void display(Cell[][] grid);
 }

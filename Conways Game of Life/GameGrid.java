@@ -1,6 +1,6 @@
 
 /**
- * Objects of GameGrid hold the state of a game of Conway's Game of Life, including every cell. Cells are booleans, where true = alive/false = dead
+ * Objects of GameGrid holds the state of every cell for a game of Conway's Game of Life. Cells are booleans, where true = alive/false = dead
  *
  * @author Isaiah Taumoepeau
  */

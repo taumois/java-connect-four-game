@@ -1,8 +1,6 @@
 
 /**
  * ConwaysGameOfLife here.
- *
- * @author Isaiah Taumoepeau
  */
 public class ConwaysGameOfLife {
     private final GameUI UI;

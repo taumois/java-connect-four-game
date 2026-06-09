@@ -1,8 +1,6 @@
 
 /**
  * Objects of GameGrid holds the state of every cell for a game of Conway's Game of Life.
- *
- * @author Isaiah Taumoepeau
  */
 class GameGrid {
     private static final byte NEIGHBORS_PER_CELL = 8;

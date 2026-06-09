@@ -1,8 +1,6 @@
 
 /**
  * TerminalUserInput here.
- *
- * @author Isaiah Taumoepeau
  */
 class TerminalUserInput implements UserInput {
     

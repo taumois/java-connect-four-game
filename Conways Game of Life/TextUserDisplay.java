@@ -1,8 +1,6 @@
 
 /**
  * TextUserDisplay here.
- *
- * @author Isaiah Taumoepeau
  */
 class TextUserDisplay implements UserDisplay {
     private static final char ALIVE_CELL_SYMBOL = 'W';

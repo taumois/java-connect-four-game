@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ConwaysGameOfLife
-comment0.text=\r\n\ ConwaysGameOfLife\ here.\r\n\r\n\ @author\ Isaiah\ Taumoepeau\r\n
+comment0.text=\r\n\ ConwaysGameOfLife\ here.\r\n
 comment1.params=ui\ grid
 comment1.target=ConwaysGameOfLife(GameUI,\ GameGrid)
 comment2.params=

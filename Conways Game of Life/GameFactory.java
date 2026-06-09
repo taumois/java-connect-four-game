@@ -1,8 +1,6 @@
 
 /**
  * GameFactory here.
- *
- * @author Isaiah Taumoepeau
  */
 public class GameFactory {
     

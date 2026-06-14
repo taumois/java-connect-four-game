@@ -4,7 +4,7 @@
  */
 class TextUserDisplay implements UserDisplay {
     private static final char ALIVE_CELL_SYMBOL = 'W';
-    private static final char DEAD_CELL_SYMBOL = ' ';
+    private static final char DEAD_CELL_SYMBOL = '`';
     
     /**
      * Constructor for objects of class TextUserDisplay

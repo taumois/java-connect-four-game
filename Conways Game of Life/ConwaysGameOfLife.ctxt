@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ display()
 comment3.params=
 comment3.target=void\ foo()
-numComments=4
+comment4.params=state\ numberOfLivingNeighbors
+comment4.target=Cell\ cellStateFromNumberOfLivingNeighbors(Cell,\ int)
+numComments=5

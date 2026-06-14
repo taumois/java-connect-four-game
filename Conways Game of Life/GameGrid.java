@@ -1,4 +1,6 @@
 
+import java.util.Random;
+
 /**
  * Objects of GameGrid holds the state of every cell for a game of Conway's Game of Life.
  */
@@ -7,7 +9,7 @@ class GameGrid {
     
     private final int WIDTH;
     private final int HEIGHT;
-    private final Cell[][] CELLS;
+    private Cell[][] CELLS;
 
     /**
      * Constructor for objects of class GameGrid
@@ -22,7 +24,7 @@ class GameGrid {
         CELLS = new Cell[HEIGHT][WIDTH];
         for(int row=0;row<CELLS.length;row++) {
             for(int column=0;column<CELLS[row].length;column++) {
-                CELLS[row][column] = Cell.ALIVE;
+                CELLS[row][column] = Math.random() > 0.5 ? Cell.DEAD : Cell.ALIVE;
             }
         }
     }
@@ -62,9 +64,19 @@ class GameGrid {
      * @param cellX x-coordinate of the target cell
      * @param cellY y-coordinate of the target cell
      * @param state state to change the cell to
+     * 
+     * @see 
      */
     void setCellsState(int column, int row, Cell state) {
         CELLS[row][column] = state;
+    }
+    
+    void setCellStates(Cell[][] states) {
+        for(int row=0;row<CELLS.length;row++) {
+            for(int column=0;column<CELLS[row].length;column++) {
+                CELLS[row][column] = states[column][row];
+            }
+        }
     }
     
     /**

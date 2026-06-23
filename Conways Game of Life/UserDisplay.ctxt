@@ -2,6 +2,6 @@
 comment0.target=UserDisplay
 comment0.text=\r\n\ UserDisplay\ here.\r\n
 comment1.params=grid
-comment1.target=void\ updateDisplay(Cell[][])
+comment1.target=void\ update(Cell[][])
 comment1.text=\r\n\ Displays\ a\ grid\ of\ cells\r\n\r\n\ @param\ grid\ the\ grid\ to\ display\r\n
 numComments=2

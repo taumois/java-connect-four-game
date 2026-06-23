@@ -13,6 +13,9 @@ public class ConwaysGameOfLife {
     ConwaysGameOfLife(GameUI ui, GameGrid grid) {
         this.UI = ui;
         this.GRID = grid;
+    }
+    
+    void start() {
         while(true) {
             display();
         }

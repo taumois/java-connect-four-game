@@ -8,6 +8,8 @@ class GameUI {
     private final UserDisplay DISPLAY;
     private final UserInput INPUT;
     
+    private UserAction previousUserAction;
+    
     /**
      * Constructor for objects of class UI
      */
@@ -17,10 +19,19 @@ class GameUI {
     }
     
     void updateDisplay(Cell[][] grid) {
-        DISPLAY.updateDisplay(grid);
+        DISPLAY.update(grid);
     }
     
-    int userAction() {
-        return INPUT.userAction();
+    void askUserForAction() {
+        UserAction userAction = INPUT.userAction();
+    }
+    
+    UserAction userAction() {
+        try {
+            return previousUserAction;
+        } catch(NullPointerException exception) {
+            askUserForAction();
+            return previousUserAction;
+        }
     }
 }

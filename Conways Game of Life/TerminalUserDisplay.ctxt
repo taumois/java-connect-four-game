@@ -1,11 +1,11 @@
 #BlueJ class context
-comment0.target=TextUserDisplay
+comment0.target=TerminalUserDisplay
 comment0.text=\r\n\ TextUserDisplay\ here.\r\n
 comment1.params=
-comment1.target=TextUserDisplay()
+comment1.target=TerminalUserDisplay()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ TextUserDisplay\r\n
 comment2.params=grid
-comment2.target=void\ updateDisplay(Cell[][])
+comment2.target=void\ update(Cell[][])
 comment2.text=\r\n\ Displays\ a\ grid\ of\ cells\ using\ text\r\n\r\n\ @param\ grid\ the\ grid\ to\ display\r\n
 comment3.params=
 comment3.target=void\ clearScreen()

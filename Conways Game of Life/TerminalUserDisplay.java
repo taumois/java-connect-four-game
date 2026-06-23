@@ -2,7 +2,7 @@
 /**
  * TextUserDisplay here.
  */
-class TextUserDisplay implements UserDisplay {
+class TerminalUserDisplay implements UserDisplay {
     private static final char UNICODE_CLEAR_SCREEN_COMMAND = '\u000C';
     private static final char ALIVE_CELL_SYMBOL = 'W';
     private static final char DEAD_CELL_SYMBOL = '`';
@@ -10,7 +10,7 @@ class TextUserDisplay implements UserDisplay {
     /**
      * Constructor for objects of class TextUserDisplay
      */
-    TextUserDisplay(){
+    TerminalUserDisplay(){
         //
     }
     
@@ -19,7 +19,7 @@ class TextUserDisplay implements UserDisplay {
      *
      * @param grid the grid to display
      */
-    public void updateDisplay(Cell[][] grid) {
+    public void update(Cell[][] grid) {
         char[] displayBuffer = printableBufferFromGrid(grid);
         clearScreen();
         System.out.print(displayBuffer);

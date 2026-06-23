@@ -8,5 +8,5 @@ interface UserDisplay {
      *
      * @param grid the grid to display
      */
-    void updateDisplay(Cell[][] grid);
+    void update(Cell[][] grid);
 }

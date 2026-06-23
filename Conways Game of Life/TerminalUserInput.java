@@ -16,8 +16,8 @@ class TerminalUserInput implements UserInput {
      *
      * @return all the action
      */
-    public int userAction() {
-        int action = 0;
+    public UserAction userAction() {
+        UserAction action = new UserAction();
         
         return action;
     }

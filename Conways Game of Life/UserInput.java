@@ -8,5 +8,5 @@ interface UserInput {
      *
      * @return the action
      */
-    int userAction();
+    UserAction userAction();
 }

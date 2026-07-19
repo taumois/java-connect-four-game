@@ -1,33 +1,33 @@
 
 /**
- * A Game of Life
+ * 
  */
 public class Game {
     private static final int MINIMUM_LIVE_NEIGHBORS_FOR_SURVIVAL = 2;
     private static final int MAXIMUM_LIVE_NEIGHBORS_FOR_SURVIVAL = 3;
     private static final int LIVE_NEIGHBORS_FOR_REPRODUCTION = 3;
     
-    private final GameUI UI;
+    private final UserInterface userInterface;
     private final GameGrid GRID;
     
-    Game(GameUI ui, GameGrid grid) {
-        this.UI = ui;
+    Game(UserInterface userInterface, GameGrid grid) {
+        this.userInterface = userInterface;
         this.GRID = grid;
     }
     
     static Game standardTerminalGame() {
-        return new Game(GameUI.terminalGameUI(), new StandardGameGrid(25,25));
+        return new Game(new TerminalUserInterface(), new StandardGameGrid(25,25));
     }
     
     void play() {
-        UI.updateDisplay(GRID.cells());
+        UserInterface.updateDisplay(GRID.cells());
         while(true) {
             for(int i=0;i<333;i++) {
                 foo();
             }
             
-            UI.updateDisplay(GRID.cells());
-            UI.askUserForAction("Hello World!");
+            userInterface.updateDisplay(GRID.cells());
+            userInterface.askUserForAction("Hello World!");
         }
     }
     

@@ -2,7 +2,7 @@
 /**
  * UserAction here.
  */
-public class GameUserAction {
+public class UserAction {
 
     /**
      * Constructor for objects of class UserAction

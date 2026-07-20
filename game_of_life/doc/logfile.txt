@@ -20,31 +20,11 @@ H:\Documents\GitHub\AS91896-Project\game_of_life\doc
 UTF-8
 -charset
 UTF-8
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java
+H:\Documents\GitHub\AS91896-Project\game_of_life\UserInterface.java
 <---- end of javadoc command ---->
-Loading source file H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java...
+Loading source file H:\Documents\GitHub\AS91896-Project\game_of_life\UserInterface.java...
 Constructing Javadoc information...
-Standard Doclet version 17.0.4.1+1
-Building tree for all the packages and classes...
-Generating H:\Documents\GitHub\AS91896-Project\game_of_life\doc\GameGrid.html...
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:52: warning: @param argument "cellX" is not a parameter name.
-     * @param cellX x-coordinate of the target cell
-       ^
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:53: warning: @param argument "cellY" is not a parameter name.
-     * @param cellY y-coordinate of the target cell
-       ^
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:64: warning: @param argument "cellX" is not a parameter name.
-     * @param cellX x-coordinate of the target cell
-       ^
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:65: warning: @param argument "cellY" is not a parameter name.
-     * @param cellY y-coordinate of the target cell
-       ^
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:81: warning: @param argument "cellX" is not a parameter name.
-     * @param  cellX x-coordinate of the target cell
-       ^
-H:\Documents\GitHub\AS91896-Project\game_of_life\GameGrid.java:82: warning: @param argument "cellY" is not a parameter name.
-     * @param  cellY y-coordinate of the target cell
-       ^
-Generating H:\Documents\GitHub\AS91896-Project\game_of_life\doc\package-summary.html...
-Generating H:\Documents\GitHub\AS91896-Project\game_of_life\doc\index.html...
-6 warnings
+H:\Documents\GitHub\AS91896-Project\game_of_life\UserAction.java:10: error: invalid method declaration; return type required
+    public GameUserAction() {
+           ^
+1 error

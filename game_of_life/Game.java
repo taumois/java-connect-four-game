@@ -1,53 +1,51 @@
 
 /**
- * ConwaysGameOfLife here.
+ * 
  */
 public class Game {
     private static final int MINIMUM_LIVE_NEIGHBORS_FOR_SURVIVAL = 2;
     private static final int MAXIMUM_LIVE_NEIGHBORS_FOR_SURVIVAL = 3;
     private static final int LIVE_NEIGHBORS_FOR_REPRODUCTION = 3;
     
-    private final GameUI UI;
+    private final UserInterface USER_INTERFACE;
     private final GameGrid GRID;
     
-    Game(GameUI ui, GameGrid grid) {
-        this.UI = ui;
+    Game(UserInterface userInterface, GameGrid grid) {
+        this.userInterface = userInterface;
         this.GRID = grid;
     }
     
-    static Game terminalUIGame() {
-        return new Game(GameUI.terminalGameUI(), new GameGrid(25,25));
+    static Game standardTerminalGame() {
+        return new Game(new TerminalUserInterface(), new StandardGameGrid(25,25));
     }
     
     void play() {
-        UI.updateDisplay(GRID.cells());
+        UserInterface.updateDisplay(GRID.cells());
         while(true) {
             for(int i=0;i<333;i++) {
                 foo();
             }
             
-            // System.
-            UI.updateDisplay(GRID.cells());
-            UI.askUserForAction("Hello World!");
+            userInterface.updateDisplay(GRID.cells());
+            userInterface.askUserForAction("Hello World!");
         }
     }
     
     private void foo() {
-        int width = GRID.width();
+        int width = GRID.cell();
         int height = GRID.height();
-        Cell[][] cellStatesBuffer = new Cell[GRID.width()][GRID.height()];
         
         for(int row=0;row<height;row++) {
             for(int column=0;column<width;column++) {
                 Cell cell = GRID.cell(column, row);
-                int cellsNumberOfLivingNeighbors = GRID.cellsNumberOfLivingNeighbors(column, row);
-                Cell cellsNextState = cellStateFromNumberOfLivingNeighbors(cell, cellsNumberOfLivingNeighbors);
+                int cellsNumberOfLivingNeighbors = GRID.neighborNumberOfCell(column, row);
+                Cell nextStateOfCell = cellStateFromNumberOfLivingNeighbors(cell, cellsNumberOfLivingNeighbors);
                 
-                cellStatesBuffer[column][row] = cellsNextState;
+                GRID.setBufferCell(column, row, nextStateOfCell);
             }
         }
         
-        GRID.setCellStates(cellStatesBuffer);
+        GRID.pushBuffer();
     }
     
     private Cell cellStateFromNumberOfLivingNeighbors(Cell state, int numberOfLivingNeighbors) {

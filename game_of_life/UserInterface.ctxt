@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=UserInterface
+comment0.text=\r\n\ \r\n
+comment1.params=grid
+comment1.target=void\ updateGrid(char[])
+comment2.params=prompt
+comment2.target=void\ createInputPrompt(java.lang.String)
+numComments=3

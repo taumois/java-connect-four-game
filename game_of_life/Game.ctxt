@@ -1,14 +1,12 @@
 #BlueJ class context
+#Mon Jul 20 20:21:09 NZST 2026
 comment0.target=Game
-comment0.text=\r\n\ ConwaysGameOfLife\ here.\r\n
-comment1.params=ui\ grid
-comment1.target=Game(GameUI,\ GameGrid)
-comment2.params=
-comment2.target=Game\ terminalUIGame()
-comment3.params=
-comment3.target=void\ play()
-comment4.params=
-comment4.target=void\ foo()
-comment5.params=state\ numberOfLivingNeighbors
-comment5.target=Cell\ cellStateFromNumberOfLivingNeighbors(Cell,\ int)
+comment0.text=\r\n \r\n
+comment1.params=userInterface grid
+comment1.target=Game(UserInterface, GameGrid)
+comment2.target=Game standardTerminalGame()
+comment3.target=void play()
+comment4.target=void foo()
+comment5.params=state numberOfLivingNeighbors
+comment5.target=Cell cellStateFromNumberOfLivingNeighbors(Cell, int)
 numComments=6

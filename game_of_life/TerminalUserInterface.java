@@ -1,41 +1,56 @@
 
 /**
- * Can display everything necessary for a game via the terminal
+ * User Interface.
  */
-class TerminalGameUserDisplay implements GameUserDisplay {
+class TerminalUserInterface implements UserInterface {
     private static final char UNICODE_CLEAR_SCREEN_COMMAND = '\u000C';
     private static final char ALIVE_CELL_SYMBOL = 'W';
     private static final char DEAD_CELL_SYMBOL = '`';
     
-    private char[] printedContent;
-    
     /**
-     * Constructor for objects of class TextUserDisplay
+     * Constructor for objects of class UI
      */
-    TerminalGameUserDisplay(){
-        //
+    TerminalUserInterface() {
+        
+    }
+    
+    static GameUI terminalGameUI() {
+        var display = new TerminalGameUserDisplay();
+        var input = new TerminalGameUserInput();
+        var terminalInstance = new TerminalGameUI(display, input);
+        return terminalInstance;
+    }
+    
+    void updateDisplay(Cell[][] grid) {
+        updateGrid(grid);
+    }
+    
+    void askUserForAction(String prompt) {
+        promptUserForAction(prompt);
+        getUserAction();
+    }
+    
+    GameUserAction userAction() {
+        GameUserAction action = userAction();
+        assert(action != null);
+        return action;
     }
     
     /**
-     * Updates the displayed grid i.e. cells
+     * Display a specified grid.
      *
      * @param grid the grid to display
      */
     public void updateGrid(Cell[][] grid) {
         char[] displayBuffer = printableBufferFromGrid(grid);
         clearTerminal();
-        recordAndPrint(displayBuffer);
-    }
-    
-    public void recordAndPrint(char[] content) {
-        System.out.print(content);
-        printedContent = content;
+        System.out.print(displayBuffer);
     }
     
     /**
-     * Displays a prompt for the user
+     * Display a prompt for the user.
      *
-     * @param prompt for the user
+     * @param prompt the prompt
      */
     public void promptUserForAction(String prompt) {
         System.out.println("=========================");
@@ -43,14 +58,14 @@ class TerminalGameUserDisplay implements GameUserDisplay {
     }
     
     /**
-     * Clears the display, i.e. terminal
+     * Clear the terminal
      */
     private void clearTerminal() {
         System.out.print(UNICODE_CLEAR_SCREEN_COMMAND);
     }
     
     /**
-     * Returns a ready to print buffer of a given grid's cell representations
+     * Return a ready to print buffer of a given grid's cell representations
      */
     private char[] printableBufferFromGrid(Cell[][] grid) {
         char[] symbolBuffer = new char[grid.length * (grid[0].length + 1)];
@@ -71,7 +86,7 @@ class TerminalGameUserDisplay implements GameUserDisplay {
     }
     
     /**
-     * Returns a representation, to be used in the terminal, for a given cell based on its state
+     * Return a representation, to be used in the terminal, for a specified cell dependant on if it's alive or not
      *
      * @param  the cell
      * @return the representation

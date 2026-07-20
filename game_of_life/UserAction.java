@@ -7,7 +7,7 @@ public class UserAction {
     /**
      * Constructor for objects of class UserAction
      */
-    public GameUserAction() {
+    public UserAction() {
         //
     }
     

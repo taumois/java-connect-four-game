@@ -7,7 +7,7 @@ public class Game {
     private static final int MAXIMUM_LIVE_NEIGHBORS_FOR_SURVIVAL = 3;
     private static final int LIVE_NEIGHBORS_FOR_REPRODUCTION = 3;
     
-    private final UserInterface userInterface;
+    private final UserInterface USER_INTERFACE;
     private final GameGrid GRID;
     
     Game(UserInterface userInterface, GameGrid grid) {

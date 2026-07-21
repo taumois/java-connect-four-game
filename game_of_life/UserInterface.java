@@ -8,7 +8,7 @@ public interface UserInterface {
      * 
      * @param grid the new grid to replace the displayed with
      */
-    public void updateGrid(char[] grid);
+    public void updateGrid(Cell[][] grid);
     
     /**
      * Create and display a prompt to the user for boolean input.
@@ -18,7 +18,9 @@ public interface UserInterface {
     public void createInputPrompt(String prompt);
     
     /**
-     * Be returned 
+     * Be returned an Input object made with the last user input recieved
+     * 
+     * @return the input object
      */
-    public UserAction userInputAction();
+    public Input lastRecievedInput();
 }

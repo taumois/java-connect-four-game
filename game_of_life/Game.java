@@ -11,7 +11,7 @@ public class Game {
     private final GameGrid GRID;
     
     Game(UserInterface userInterface, GameGrid grid) {
-        this.userInterface = userInterface;
+        this.USER_INTERFACE = userInterface;
         this.GRID = grid;
     }
     
@@ -26,8 +26,8 @@ public class Game {
                 foo();
             }
             
-            userInterface.updateDisplay(GRID.cells());
-            userInterface.askUserForAction("Hello World!");
+            USER_INTERFACE.updateDisplay(GRID.cells());
+            USER_INTERFACE.askUserForAction("Hello World!");
         }
     }
     

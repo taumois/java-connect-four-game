@@ -1,7 +1,8 @@
 
 /**
- * Cell here
+ * 
  */
 enum Cell {
-    ALIVE, DEAD
+    ALIVE, 
+    DEAD,
 }

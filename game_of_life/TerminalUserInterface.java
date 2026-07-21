@@ -1,4 +1,6 @@
 
+import java.util.Scanner;
+
 /**
  * User Interface.
  */
@@ -6,6 +8,11 @@ class TerminalUserInterface implements UserInterface {
     private static final char UNICODE_CLEAR_SCREEN_COMMAND = '\u000C';
     private static final char ALIVE_CELL_SYMBOL = 'W';
     private static final char DEAD_CELL_SYMBOL = '`';
+    private final Scanner INPUT = new Scannner(System.in);
+    private char[] gridToDisplay;
+    private boolean isDisplayingPrompt;
+    private String promptToDisplay;
+    private Input lastRecievedInput;
     
     /**
      * Constructor for objects of class UI
@@ -14,37 +21,37 @@ class TerminalUserInterface implements UserInterface {
         
     }
     
-    static GameUI terminalGameUI() {
-        var display = new TerminalGameUserDisplay();
-        var input = new TerminalGameUserInput();
-        var terminalInstance = new TerminalGameUI(display, input);
-        return terminalInstance;
+    /**
+     * Update the grid displayed to the user.
+     * 
+     * @param grid the new grid to replace the displayed with
+     */
+    public void updateGrid(Cell[][] grid) {
+        gridToDisplay = printableBufferFromGrid(grid);
     }
     
-    void updateDisplay(Cell[][] grid) {
-        updateGrid(grid);
+    public void createInputPrompt(String prompt, InputType type) {
+        switch(type) {
+            case InputType.BOOLEAN:
+                
+            case InputType.BOOLEAN:
+            case InputType.BOOLEAN:
+            case InputType.BOOLEAN:
+            default:
+                throw new Exception();
+        }
     }
-    
-    void askUserForAction(String prompt) {
-        promptUserForAction(prompt);
-        getUserAction();
-    }
-    
-    GameUserAction userAction() {
-        GameUserAction action = userAction();
-        assert(action != null);
-        return action;
+     
+    public Input lastRecievedInput() {
+        return lastRecievedInput;
     }
     
     /**
-     * Display a specified grid.
-     *
-     * @param grid the grid to display
+     * 
      */
-    public void updateGrid(Cell[][] grid) {
-        char[] displayBuffer = printableBufferFromGrid(grid);
+    private void refresh() {
         clearTerminal();
-        System.out.print(displayBuffer);
+        System.out.print(gridToDisplay);
     }
     
     /**
@@ -52,7 +59,7 @@ class TerminalUserInterface implements UserInterface {
      *
      * @param prompt the prompt
      */
-    public void promptUserForAction(String prompt) {
+    private void promptUserForAction(String prompt) {
         System.out.println("=========================");
         System.out.println(prompt);
     }

@@ -31,7 +31,7 @@ class BorderedVariableSizeGameGrid implements GameGrid {
     }
     
     /**
-     * The 2d array containing all of the cells. The 1st dimension is row #; the 2nd dimension is column #
+     * Be returned the 2d array containing all of this grids cells. The 1st dimension is row #; the 2nd dimension is column #.
      * 
      * @return the cells
      */
@@ -40,16 +40,26 @@ class BorderedVariableSizeGameGrid implements GameGrid {
     }
     
     /**
-     * Step forward a generation the specified amount of times
+     * Step forward a generation the specified amount of times.
      * 
      * @param NumberOfGenerations
      */
-    public void stepForwardGenerations(int NumberOfgenerations) {
-        
+    public void stepForwardGenerations(int numberOfGenerations) {
+        for(int i=0;i<numberOfGenerations;i++) {
+            stepForwardAGeneration();
+        }
+    }
+    // ^^^ Test this?
+    
+    /**
+     * Step forward one generation.
+     */
+    private void stepForwardAGeneration() {
+        //
     }
     
     /**
-     * 'Pushes' the buffer onto the grid. I.e. Overrides the grid such that it is identicle to the buffer
+     * 'Pushes' the buffer onto the grid. I.e. Overrides the grid such that it is identicle to the buffer.
      */
     private void pushBuffer() {
         for(int rowIndex = 0;rowIndex<cells.length;rowIndex++) {
@@ -121,7 +131,7 @@ class BorderedVariableSizeGameGrid implements GameGrid {
     }
     
     /**
-     * The fact of a specified column existing
+     * Be returned a boolean representing if a specified column exists here
      * 
      * @param column the column number
      */
@@ -133,7 +143,7 @@ class BorderedVariableSizeGameGrid implements GameGrid {
     }
     
     /**
-     * The fact of a specified row existing
+     * Be returned a boolean representing if a specified row exists here
      * 
      * @param row the row number
      */

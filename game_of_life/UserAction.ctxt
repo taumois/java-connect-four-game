@@ -1,9 +1,0 @@
-#BlueJ class context
-#Mon Jul 20 20:20:32 NZST 2026
-comment0.target=UserAction
-comment0.text=\r\n UserAction here.\r\n
-comment1.target=UserAction()
-comment1.text=\r\n Constructor for objects of class UserAction\r\n
-comment2.params=game
-comment2.target=void act(Game)
-numComments=3

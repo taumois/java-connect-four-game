@@ -3,15 +3,30 @@
  * Rules what the state of a cell should be.
  */
 public class LifeAutomataRuler {
-    private int[] neighborQuantitiesThatAllowReproduction;
-    private int[] neighborQuantitiesThatAllowSurvival;
+    private Cell[] cellShouldSurviveByQuantityOfNeighborsAsIndex = new Cell[9];
+    private Cell[] cellShouldBeReproducedByQuantityOfNeighborsAsIndex = new Cell[9];
     
     /**
      * An object of LifeAutomataRuler
      */
-    LifeAutomataRuler(int[] neighborQuantitiesThatAllowReproduction, int[] neighborQuantitiesThatAllowSurvival) {
-        this.neighborQuantitiesThatAllowReproduction = neighborQuantitiesThatAllowReproduction;
-        this.neighborQuantitiesThatAllowSurvival = neighborQuantitiesThatAllowSurvival;
+    LifeAutomataRuler(int[] quantitiesOfNeighborsToAllowSurvival, int[] quantitiesOfNeighborsToAllowReproduction) {
+        for(int cellIndex=0;cellIndex<cellShouldSurviveByQuantityOfNeighborsAsIndex.length;cellIndex++) {
+            cellShouldSurviveByQuantityOfNeighborsAsIndex[cellIndex] = Cell.DEAD;
+            for(int neighborQuantity: quantitiesOfNeighborsToAllowSurvival) {
+                if(cellIndex == neighborQuantity) {
+                    cellShouldSurviveByQuantityOfNeighborsAsIndex[cellIndex] = Cell.ALIVE;
+                }
+            }
+        }
+        
+        for(int cellIndex=0;cellIndex<cellShouldBeReproducedByQuantityOfNeighborsAsIndex.length;cellIndex++) {
+            cellShouldBeReproducedByQuantityOfNeighborsAsIndex[cellIndex] = Cell.DEAD;
+            for(int neighborQuantity: quantitiesOfNeighborsToAllowReproduction) {
+                if(cellIndex == neighborQuantity) {
+                    cellShouldBeReproducedByQuantityOfNeighborsAsIndex[cellIndex] = Cell.ALIVE;
+                }
+            }
+        }
     }
     
     /**
@@ -20,8 +35,16 @@ public class LifeAutomataRuler {
      * @param cell            the cell to rule on
      * @param neighborsOfCell the neighbors of the cell to rule on
      */
-    static Cell cellRulingFrom(Cell cell, Cell neighborsOfCell) {
-        for(int quantity : neighborsOfCell)
-        return Cell.ALIVE;
+    Cell rulingFromNeighborsForCell(Cell cell, Cell[] neighborsOfCell) {
+        assert(neighborsOfCell.length <= 8);
+        
+        int quantityOfNeighbors = 0;
+        for(Cell neighbor: neighborsOfCell) {
+            quantityOfNeighbors += cell == Cell.ALIVE ? 1 : 0;
+        }
+        if(cell == Cell.ALIVE) {
+            return cellShouldSurviveByQuantityOfNeighborsAsIndex[quantityOfNeighbors];
+        }
+        return cellShouldBeReproducedByQuantityOfNeighborsAsIndex[quantityOfNeighbors];
     }
 }
